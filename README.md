@@ -108,7 +108,7 @@ pytest -m regression -v
 pytest -m "not smoke" -v
 ```
 
-### Запуск с генерацией Allure отчета
+### Запуск с генерацією Allure звіту
 
 ```bash
 # Запустити тести с Allure
@@ -243,25 +243,25 @@ class FilterPanel(BaseComponent):
 
 ---
 
-## 🎯 Best Practices Применены
+## 🎯 Best Practices застосовано
 
-✅ **PEP8 Compliance** - Чистый код с правильным форматированием
+✅ **PEP8 Compliance** - Чистий код із правильним форматуванням
 
-✅ **No time.sleep()** - Используется WebDriverWait для явных ожиданий
+✅ **No time.sleep()** - Використовується WebDriverWait для чітких очікувань
 
-✅ **POM + Components** - Разделение на страницы и компоненты
+✅ **POM + Components** - Розподіл на сторінки та компоненти
 
-✅ **BaseComponent** - Все компоненты наследуют базовый класс
+✅ **BaseComponent** - Усі компоненти успадковують базовий клас
 
-✅ **Allure Reporting** - Детальные отчеты с аннотациями
+✅ **Allure Reporting** - Детальні звіти з анотаціями
 
-✅ **DRY Principle** - Отсутствие дублирования кода
+✅ **DRY Principle** - Відсутність дублювання коду
 
 ---
 
-## 🔧 Разработка Новых Тестов
+## 🔧 Розробка нових тестів
 
-### Пример добавления нового теста:
+### Приклад додавання нового тесту:
 
 ```python
 import pytest
@@ -295,7 +295,7 @@ class TestEventSearch:
 
 ---
 
-## 📝 Добавление Новых Компонентов
+## 📝 Додавання нових компонентів
 
 ```python
 # src/components/pagination.py
@@ -325,7 +325,7 @@ __all__ = [..., 'Pagination']
 
 ## 🐛 Troubleshooting
 
-### Проблема: WebDriver не скачался
+### Проблема: WebDriver не завантажився
 
 **Решение:** `webdriver-manager` должен скачать его автоматически. Если нет:
 ```bash
