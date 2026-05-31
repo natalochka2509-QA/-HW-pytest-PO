@@ -19,35 +19,35 @@ greencity-tests/
 ├── src/
 │   ├── pages/
 │   │   ├── __init__.py
-│   │   ├── base_page.py           # Базовый класс для всех страниц
-│   │   └── events_page.py         # Page Object для страницы событий
+│   │   ├── base_page.py           # Базовий клас для всіх сторінок
+│   │   └── events_page.py         # Page Object для сторінки подій
 │   └── components/
 │       ├── __init__.py
-│       ├── base_component.py      # Базовый класс для всех компонентов
+│       ├── base_component.py      # Базовий клас для всіх компонентів
 │       ├── header.py              # Компонент Header
 │       ├── filter_panel.py        # Компонент FilterPanel
 │       └── event_card.py          # Компонент EventCard
 ├── tests/
 │   ├── __init__.py
-│   └── test_events_page.py        # Тесты для страницы событий
-├── conftest.py                     # Pytest фикстури и конфигурация
-├── pytest.ini                      # Конфигурация pytest
-├── requirements.txt                # Зависимости проекта
-└── README.md                       # Этот файл
+│   └── test_events_page.py        # Тести для сторінки подій
+├── conftest.py                     # Pytest фікстури та конфигурація
+├── pytest.ini                      # Конфігурация pytest
+├── requirements.txt                # Залежності проєкта
+└── README.md                       # Цей файл
 ```
 
 ---
 
-## ⚙️ Установка и Конфигурация
+## ⚙️ Встановлення та налаштування
 
-### 1. Требования
+### 1. Вимоги
 - **Python 3.8+**
 - **pip** (менеджер пакетов Python)
 
 ### 2. Установка зависимостей
 
 ```bash
-# Установить все зависимости из requirements.txt
+# Встановити всі залежності з requirements.txt
 pip install -r requirements.txt
 ```
 
@@ -55,11 +55,11 @@ pip install -r requirements.txt
 - `selenium==4.15.2` - WebDriver automation
 - `pytest==7.4.3` - Test framework
 - `allure-pytest==2.13.2` - Allure reporting
-- `webdriver-manager==4.0.1` - Автоматическое управление драйверами
+- `webdriver-manager==4.0.1` - Автоматичне керування драйверами
 
 ### 3. Конфигурация переменных окружения (опционально)
 
-Создайте файл `.env` в корне проекта:
+Створіть файл `.env` в корені проєкту:
 
 ```bash
 BASE_URL=https://greencity.com
@@ -69,9 +69,9 @@ IMPLICIT_WAIT=10
 
 ---
 
-## 🚀 Запуск Тестов
+## 🚀 Запуск Тестів
 
-### Базовый запуск всех тестов
+### Базовий запуск всіх тестів
 
 ```bash
 pytest
