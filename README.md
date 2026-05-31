@@ -1,14 +1,14 @@
 # 🌱 GreenCity Tests - Test Automation Framework
 
-Проект автоматизації тестування веб-сайту GreenCity з використанням **Page Object Model (POM)** та **Component-based архітектури**.
+Проєкт автоматизації тестування веб-сайту GreenCity з використанням **Page Object Model (POM)** та **Component-based архітектури**.
 
-## 📋 Про Проект
+## 📋 Про проєкт
 
 Це фреймворк для автоматизації тестування UI GreenCity з фокусом на:
 - ✅ **POM (Page Object Model)** - чистий код та легка підтримка
-- ✅ **Component-based approach** - переиспользуемые компоненты
-- ✅ **Allure Reports** - детальные отчеты о тестах
-- ✅ **Best Practices** - PEP8, явные ожидания, отсутствие sleep
+- ✅ **Component-based approach** - компоненти, що повторно використовуються
+- ✅ **Allure Reports** - детальні звіти про тести
+- ✅ **Best Practices** - PEP8, чіткі очікування, відсутність sleep
 
 ---
 
@@ -362,12 +362,6 @@ pip install allure-pytest --upgrade
 
 ---
 
-## 📄 Лицензия
-
-Проект используется в учебных целях.
-
----
-
 ## 🚀 Краткая Шпаргалка
 
 ```bash
@@ -387,7 +381,3 @@ allure serve allure-results
 # Конкретный тест
 pytest tests/test_events_page.py::TestEventsPageDisplay::test_events_page_loads -v
 ```
-
----
-
-**Made with ❤️ for Quality Assurance**
