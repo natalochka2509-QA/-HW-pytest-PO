@@ -1,39 +1,55 @@
+"""Filter Panel Component"""
 from selenium.webdriver.common.by import By
-from selenium.webdriver.remote.webdriver import WebDriver
+from .base_component import BaseComponent
 
-class FilterPanel:
-    """Filter Panel Component"""
-    
-    def __init__(self, driver: WebDriver):
-        self.driver = driver
-        
-        # Locators
-        self.FILTER_CONTAINER = (By.CSS_SELECTOR, "[class*='filter-panel']")
-        self.FILTER_OPTIONS = (By.CSS_SELECTOR, "[class*='filter-option']")
-        self.APPLY_BUTTON = (By.CSS_SELECTOR, "[class*='apply-filters']")
-        self.RESET_BUTTON = (By.CSS_SELECTOR, "[class*='reset-filters']")
-    
+
+class FilterPanel(BaseComponent):
+    """Filter Panel Component for filtering events by tags and options."""
+
+    # Locators
+    FILTER_CONTAINER = (By.CSS_SELECTOR, "[class*='filter-panel']")
+    FILTER_OPTIONS = (By.CSS_SELECTOR, "[class*='filter-option']")
+    APPLY_BUTTON = (By.CSS_SELECTOR, "[class*='apply-filters']")
+    RESET_BUTTON = (By.CSS_SELECTOR, "[class*='reset-filters']")
+
     def is_filter_panel_visible(self) -> bool:
-        """Check if filter panel is visible"""
-        try:
-            return self.driver.find_element(*self.FILTER_CONTAINER).is_displayed()
-        except:
-            return False
-    
+        """
+        Check if filter panel is visible on page.
+
+        Returns:
+            True if filter panel is visible, False otherwise
+        """
+        return self.is_element_visible(self.FILTER_CONTAINER)
+
     def get_filter_options_count(self) -> int:
-        """Get count of filter options"""
-        return len(self.driver.find_elements(*self.FILTER_OPTIONS))
-    
+        """
+        Get count of available filter options.
+
+        Returns:
+            Count of filter options
+        """
+        return self.get_element_count(self.FILTER_OPTIONS)
+
     def select_filter_option(self, option_index: int):
-        """Select filter option by index"""
-        options = self.driver.find_elements(*self.FILTER_OPTIONS)
+        """
+        Select filter option by index.
+
+        Args:
+            option_index: Index of filter option to select
+
+        Returns:
+            True if option was selected, False if index is out of range
+        """
+        options = self.find_elements(self.FILTER_OPTIONS)
         if option_index < len(options):
             options[option_index].click()
-    
+            return True
+        return False
+
     def apply_filters(self):
-        """Click apply filters button"""
-        self.driver.find_element(*self.APPLY_BUTTON).click()
-    
+        """Click apply filters button to apply selected filters."""
+        self.click_element(self.APPLY_BUTTON)
+
     def reset_filters(self):
-        """Click reset filters button"""
-        self.driver.find_element(*self.RESET_BUTTON).click()
+        """Click reset filters button to clear all filters."""
+        self.click_element(self.RESET_BUTTON)
