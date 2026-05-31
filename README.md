@@ -57,7 +57,7 @@ pip install -r requirements.txt
 - `allure-pytest==2.13.2` - Allure reporting
 - `webdriver-manager==4.0.1` - Автоматичне керування драйверами
 
-### 3. Конфигурация переменных окружения (опционально)
+### 3. Налаштування змінних середовища (опціонально)
 
 Створіть файл `.env` в корені проєкту:
 
@@ -95,69 +95,68 @@ pytest tests/test_events_page.py -v
 pytest tests/test_events_page.py::TestEventsPageDisplay::test_events_page_loads -v
 ```
 
-### Запуск тестов по маркерам
+### Запуск тестов за маркерами
 
 ```bash
-# Только smoke тесты
+# Тільки smoke тести
 pytest -m smoke -v
 
-# Только regression тесты
+# Тільки regression тести
 pytest -m regression -v
 
-# Все кроме smoke
+# Всі крім smoke
 pytest -m "not smoke" -v
 ```
 
 ### Запуск с генерацией Allure отчета
 
 ```bash
-# Запустить тесты с Allure
+# Запустити тести с Allure
 pytest --alluredir=allure-results
 
-# Просмотреть Allure отчет
+# Переглянути Allure звіт
 allure serve allure-results
 ```
 
 ---
 
-## 📊 Генерирование Allure Отчета
+## 📊 Генеруровання Allure звіту
 
-### Установка Allure (один раз)
+### Встановлення Allure (один раз)
 
-**На Windows (с Chocolatey):**
+**На Windows:**
 ```bash
 choco install allure
 ```
 
-**На Linux/Mac (с Homebrew):**
+**На Linux/Mac:**
 ```bash
 brew install allure
 ```
 
-### Просмотр Отчета
+### Перегляд звіту
 
 ```bash
-# Запустить тесты и создать отчет
+# Запустити тести і створити звіт
 pytest --alluredir=allure-results
 
-# Открыть отчет в браузере
+# Відкрити звіт в браузері
 allure serve allure-results
 ```
 
 ---
 
-## 🧪 Тестовое Покриття
+## 🧪 Тестове покриття
 
-### Реализованные тест-кейсы:
+### Реалізовані тест-кейси:
 
 #### **TestEventsPageDisplay** (Display & Navigation)
-1. ✅ `test_events_page_loads` - Загрузка страницы событий
+1. ✅ `test_events_page_loads` - Загрузка сторінки подій
 2. ✅ `test_header_is_visible` - Видимость заголовка
-3. ✅ `test_events_displayed` - Отображение событий
+3. ✅ `test_events_displayed` - Відображення подій
 
 #### **TestEventTitles** (Event Titles)
-4. ✅ `test_get_event_titles` - Получение названий событий
-
+4. ✅ `test_get_event_titles` - Отримання назв подій
 #### **TestEventFiltering** (Filtering)
 5. ✅ `test_filter_button_clickable` - Клик на кнопку фильтра
 6. ✅ `test_filter_options_exist` - Доступные опции фильтра
@@ -209,7 +208,7 @@ class BaseComponent:
 
 ```python
 class EventsPage(BasePage):
-    """Page Object для страницы событий"""
+    """Page Object для сторінки подій"""
     
     def navigate_to_events(self)
     def get_events_count(self) -> int
@@ -222,7 +221,7 @@ class EventsPage(BasePage):
 
 ```python
 class Header(BaseComponent):
-    """Компонент Header для навигации"""
+    """Компонент Header для навігації"""
     
     def click_logo(self)
     def is_header_visible(self) -> bool
@@ -333,51 +332,40 @@ __all__ = [..., 'Pagination']
 pip install --upgrade webdriver-manager
 ```
 
-### Проблема: Тесты не находят элементы
+### Проблема: Тести не знаходять елементи
 
-**Решение:**
-1. Проверьте CSS селекторы в locators
+**Рішення:**
+1. Перевірте CSS селектори в locators
 2. Увеличьте timeout в `conftest.py` (по умолчанию 10 сек)
-3. Используйте `is_element_visible()` перед взаимодействием
+3. Використовуйте `is_element_visible()` перед взаємодією
 
-### Проблема: Allure отчет не генерируется
+### Проблема: Allure звіт не генерується
 
-**Решение:**
+**Рішення:**
 ```bash
-# Убедитесь что allure установлен
+# Впевніться що allure установлено
 allure --version
 
-# Переустановите если нужно
+# Переустановіть, якщо потрібно
 pip install allure-pytest --upgrade
 ```
 
----
-
-## 📞 Контакты и Поддержка
-
-Для вопросов или проблем:
-- Проверьте документацию выше
-- Посмотрите на примеры тестов в `tests/test_events_page.py`
-- Обратитесь к разработчику
-
----
-
-## 🚀 Краткая Шпаргалка
+## 🚀 Короткий довідник
 
 ```bash
 # Установка
 pip install -r requirements.txt
 
-# Все тесты
+# Всі тести
 pytest -v
 
-# Только smoke
+# Тілько smoke
 pytest -m smoke -v
 
-# С Allure отчетом
+# С Allure звітом
 pytest --alluredir=allure-results
 allure serve allure-results
 
-# Конкретный тест
+# Конкретний тест
 pytest tests/test_events_page.py::TestEventsPageDisplay::test_events_page_loads -v
 ```
